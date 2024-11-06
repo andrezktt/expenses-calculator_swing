@@ -30,7 +30,3 @@ Este projeto utiliza apenas bibliotecas padrão do Java, como `javax.swing` para
 ## Screenshots
 
 ![Screenshot do programa](screenshot.png)
-
-## Autor
-
-Criado por [André Zicatti](https://github.com/andrezktt)
