@@ -14,6 +14,8 @@ public class ExpenseCalculator {
     private List<Expense> expenses;
     private JTextField categoryField;
     private JTextField amountField;
+    private JTextField deleteField;
+    private JTextField filterField;
     private JTextArea reportArea;
 
     public ExpenseCalculator() {
@@ -21,18 +23,22 @@ public class ExpenseCalculator {
         expenses = new ArrayList<>();
         JFrame frame = new JFrame("Calculadora de Despesas Mensais");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(600, 400);
         frame.setLayout(new FlowLayout());
 
         // Interface Components
         categoryField = new JTextField(15);
-        amountField = new JTextField(10);
-        reportArea = new JTextArea(10, 30);
+        amountField = new JTextField(15);
+        deleteField = new JTextField(5);
+        filterField = new JTextField(15);
+        reportArea = new JTextArea(10, 45);
         reportArea.setEditable(false);
 
-        JButton addButton = new JButton("Adicionar Despesa");
-        JButton saveButton = new JButton("Salvar Despesas");
-        JButton loadButton = new JButton("Carregar Despesas");
+        JButton addButton = new JButton("Adicionar");
+        JButton deleteButton = new JButton("Excluir");
+        JButton saveButton = new JButton("Salvar");
+        JButton loadButton = new JButton("Carregar");
+        JButton filterButton = new JButton("Filtrar");
         JButton generateButton = new JButton("Gerar Relatório");
 
         // Add components to frame
@@ -41,6 +47,12 @@ public class ExpenseCalculator {
         frame.add(new JLabel("Valor:"));
         frame.add(amountField);
         frame.add(addButton);
+        frame.add(new JLabel("Índice da Despesa para excluir:"));
+        frame.add(deleteField);
+        frame.add(deleteButton);
+        frame.add(new JLabel("Filtrar por categoria:"));
+        frame.add(filterField);
+        frame.add(filterButton);
         frame.add(generateButton);
         frame.add(saveButton);
         frame.add(loadButton);
@@ -50,6 +62,22 @@ public class ExpenseCalculator {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addExpense();
+                generateReport();
+            }
+        });
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteExpense();
+                generateReport();
+            }
+        });
+
+        filterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                filterExpenses();
             }
         });
 
@@ -100,6 +128,40 @@ public class ExpenseCalculator {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Por favor, insira um valor válido.");
         }
+    }
+
+    private void deleteExpense() {
+        String indexText = deleteField.getText();
+
+        try {
+            int index = Integer.parseInt(indexText);
+            if (index < 0 || index >= expenses.size()) {
+                JOptionPane.showMessageDialog(null, "Índice inválido.");
+                return;
+            }
+            expenses.remove(index - 1);
+            deleteField.setText("");
+            JOptionPane.showMessageDialog(null, "Despesa excluída com sucesso!");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor, insira um índice válido.");
+        }
+    }
+
+    private void filterExpenses() {
+        String category = filterField.getText();
+        StringBuilder report = new StringBuilder();
+        double total = 0;
+
+        report.append("Relatório de Despesas para a Categoria: ").append(category).append("\n");
+        for (Expense expense : expenses) {
+            if (expense.getCategory().equalsIgnoreCase(category)) {
+                report.append(String.format("Categoria: %s, Valor: %.2f%n", expense.getCategory(), expense.getAmount()));
+                total += expense.getAmount();
+            }
+        }
+        report.append(String.format("Total de despesas: %.2f%n", total));
+
+        reportArea.setText(report.toString());
     }
 
     private void saveExpenses() {
