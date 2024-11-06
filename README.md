@@ -33,4 +33,4 @@ Este projeto utiliza apenas bibliotecas padrão do Java, como `javax.swing` para
 
 ## Autor
 
-Criado por [Seu Nome](https://github.com/andrezktt)
+Criado por [André Zicatti](https://github.com/andrezktt)
