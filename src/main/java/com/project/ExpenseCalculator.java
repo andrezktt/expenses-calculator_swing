@@ -24,8 +24,8 @@ public class ExpenseCalculator {
         expenses = new ArrayList<>();
         JFrame frame = new JFrame("Calculadora de Despesas Mensais");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
-        frame.setLayout(new FlowLayout());
+        frame.setSize(500, 600);
+        frame.setLayout(new GridBagLayout());
 
         // Interface Components
         titleField = new JTextField(15);
@@ -44,23 +44,85 @@ public class ExpenseCalculator {
         JButton generateButton = new JButton("Gerar Relatório");
 
         // Add components to frame
-        frame.add(new JLabel("Título:"));
-        frame.add(titleField);
-        frame.add(new JLabel("Categoria:"));
-        frame.add(categoryField);
-        frame.add(new JLabel("Valor:"));
-        frame.add(amountField);
-        frame.add(addButton);
-        frame.add(new JLabel("Índice da Despesa para excluir:"));
-        frame.add(deleteField);
-        frame.add(deleteButton);
-        frame.add(new JLabel("Filtrar por categoria:"));
-        frame.add(filterField);
-        frame.add(filterButton);
-        frame.add(generateButton);
-        frame.add(saveButton);
-        frame.add(loadButton);
-        frame.add(new JScrollPane(reportArea));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        frame.add(new JLabel("Título:"), gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        frame.add(titleField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        frame.add(new JLabel("Categoria:"), gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        frame.add(categoryField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        frame.add(new JLabel("Valor:"), gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        frame.add(amountField, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.CENTER;
+        frame.add(addButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        JScrollPane scrollPane = new JScrollPane(reportArea);
+        frame.add(scrollPane, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        gbc.gridwidth = 1;
+        gbc.weighty = 0;
+        gbc.anchor = GridBagConstraints.CENTER;
+        frame.add(generateButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        frame.add(new JLabel("Índice para Excluir:"), gbc);
+
+        gbc.gridx = 1;
+        frame.add(deleteField, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 7;
+        frame.add(deleteButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 8;
+        frame.add(new JLabel("Filtrar por Categoria:"), gbc);
+
+        gbc.gridx = 1;
+        frame.add(filterField, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 9;
+        frame.add(filterButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 10;
+        frame.add(saveButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 10;
+        frame.add(loadButton, gbc);
 
         addButton.addActionListener(new ActionListener() {
             @Override
