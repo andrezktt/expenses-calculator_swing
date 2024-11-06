@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class ExpenseCalculator {
     private List<Expense> expenses;
+    private JTextField titleField;
     private JTextField categoryField;
     private JTextField amountField;
     private JTextField deleteField;
@@ -27,11 +28,12 @@ public class ExpenseCalculator {
         frame.setLayout(new FlowLayout());
 
         // Interface Components
+        titleField = new JTextField(15);
         categoryField = new JTextField(15);
         amountField = new JTextField(15);
         deleteField = new JTextField(5);
         filterField = new JTextField(15);
-        reportArea = new JTextArea(10, 45);
+        reportArea = new JTextArea(15, 50);
         reportArea.setEditable(false);
 
         JButton addButton = new JButton("Adicionar");
@@ -42,6 +44,8 @@ public class ExpenseCalculator {
         JButton generateButton = new JButton("Gerar Relatório");
 
         // Add components to frame
+        frame.add(new JLabel("Título:"));
+        frame.add(titleField);
         frame.add(new JLabel("Categoria:"));
         frame.add(categoryField);
         frame.add(new JLabel("Valor:"));
@@ -107,10 +111,11 @@ public class ExpenseCalculator {
     }
 
     private void addExpense() {
+        String title = titleField.getText();
         String category = categoryField.getText();
         String amountText = amountField.getText();
 
-        if (category.isEmpty() || amountText.isEmpty()) {
+        if (title.isEmpty() || category.isEmpty() || amountText.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.");
             return;
         }
@@ -121,7 +126,8 @@ public class ExpenseCalculator {
                 JOptionPane.showMessageDialog(null, "O valor deve ser positivo.");
                 return;
             }
-            expenses.add(new Expense(category, amount));
+            expenses.add(new Expense(title, category, amount));
+            titleField.setText("");
             categoryField.setText("");
             amountField.setText("");
             JOptionPane.showMessageDialog(null, "Despesa adicionada com sucesso!");
@@ -155,11 +161,11 @@ public class ExpenseCalculator {
         report.append("Relatório de Despesas para a Categoria: ").append(category).append("\n");
         for (Expense expense : expenses) {
             if (expense.getCategory().equalsIgnoreCase(category)) {
-                report.append(String.format("Categoria: %s, Valor: %.2f%n", expense.getCategory(), expense.getAmount()));
+                report.append(String.format("%s - %s | Valor: R$%.2f%n", expense.getTitle(), expense.getCategory(), expense.getAmount()));
                 total += expense.getAmount();
             }
         }
-        report.append(String.format("Total de despesas: %.2f%n", total));
+        report.append(String.format("\nTotal de despesas: R$%.2f%n", total));
 
         reportArea.setText(report.toString());
     }
@@ -167,7 +173,7 @@ public class ExpenseCalculator {
     private void saveExpenses() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("expenses.txt"))) {
             for (Expense expense : expenses) {
-                writer.printf("%s,%.2f%n", expense.getCategory(), expense.getAmount());
+                writer.printf("%s,%s,%.2f%n", expense.getTitle(), expense.getCategory(), expense.getAmount());
             }
             JOptionPane.showMessageDialog(null, "Despesas salvas com sucesso!");
         } catch (IOException e) {
@@ -181,10 +187,11 @@ public class ExpenseCalculator {
             expenses.clear();
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 2) {
-                    String category = parts[0];
-                    double amount = Double.parseDouble(parts[1]);
-                    expenses.add(new Expense(category, amount));
+                if (parts.length == 3) {
+                    String title = parts[0];
+                    String category = parts[1];
+                    double amount = Double.parseDouble(parts[2]);
+                    expenses.add(new Expense(title, category, amount));
                 }
             }
             JOptionPane.showMessageDialog(null, "Despesas carregadas com sucesso!");
@@ -199,12 +206,13 @@ public class ExpenseCalculator {
         StringBuilder report = new StringBuilder();
         double total = 0;
 
-        report.append("Relatório de Despesas:\n");
-        for (Expense expense : expenses) {
-            report.append(String.format("Categoria: %s, Valor: %.2f%n", expense.getCategory(), expense.getAmount()));
+        report.append("Relatório de Despesas Mensais:\n").append("\n");
+        for (int i = 0; i < expenses.size(); i++) {
+            Expense expense = expenses.get(i);
+            report.append(String.format("%d. %s - %s | Valor: R$%.2f%n", i + 1, expense.getTitle(), expense.getCategory(), expense.getAmount()));
             total += expense.getAmount();
         }
-        report.append(String.format("\nTotal de despesas: %.2f%n", total));
+        report.append(String.format("\nTotal de despesas: R$%.2f%n", total));
 
         reportArea.setText(report.toString());
     }

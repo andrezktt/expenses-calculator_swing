@@ -1,6 +1,6 @@
-Eletronics,578.99
-Books,113.47
-Streaming,46.99
-Food,14.56
-Streaming,16.89
-Books,37.56
+Mouse VX1,Eletronics,235.89
+HBO Max,Streaming,16.99
+Fosi Q5 (DAC/AMP),Eletronics,284.75
+São Bernardo (Graciliano Ramos),Books,42.65
+Switch Silver (Keyboard),Eletronics,56.99
+Netflix,Streaming,24.89
