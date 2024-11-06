@@ -1,6 +1,8 @@
 Mouse VX1,Eletronics,235.89
-HBO Max,Streaming,16.99
 Fosi Q5 (DAC/AMP),Eletronics,284.75
 São Bernardo (Graciliano Ramos),Books,42.65
 Switch Silver (Keyboard),Eletronics,56.99
-Netflix,Streaming,24.89
+Fydigi Vader 4 Pro,Eletronics,449.99
+Rodízio Sushi Katakan,Food,132.48
+Café da Tarde Zafari,Food,67.89
+Os Irmãos Karamazov (Dostoiévski),Books,87.62
