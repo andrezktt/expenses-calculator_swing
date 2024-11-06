@@ -50,7 +50,7 @@ public class ExpenseCalculator {
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                generateReport();
             }
         });
 
@@ -78,7 +78,17 @@ public class ExpenseCalculator {
     }
 
     private void generateReport() {
-        
+        StringBuilder report = new StringBuilder();
+        double total = 0;
+
+        report.append("Relatório de Despesas:\n");
+        for (Expense expense : expenses) {
+            report.append(String.format("Categoria: %s, Valor: %.2f%n", expense.getCategory(), expense.getAmount()));
+            total += expense.getAmount();
+        }
+        report.append(String.format("Total de despesas: %.2f%n", total));
+
+        reportArea.setText(report.toString());
     }
 
     public static void main(String[] args) {
