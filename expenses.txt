@@ -1,8 +1,109 @@
-Mouse VX1,Eletronics,235.89
-Fosi Q5 (DAC/AMP),Eletronics,284.75
-São Bernardo (Graciliano Ramos),Books,42.65
-Switch Silver (Keyboard),Eletronics,56.99
-Fydigi Vader 4 Pro,Eletronics,449.99
-Rodízio Sushi Katakan,Food,132.48
-Café da Tarde Zafari,Food,67.89
-Os Irmãos Karamazov (Dostoiévski),Books,87.62
+Groceries,Food,150.75
+Rent,Housing,1200.00
+Electricity,Housing,210.30
+Internet,Utilities,75.00
+Gym,Health,40.00
+Transportation,Travel,60.45
+Dining Out,Food,80.00
+Phone Bill,Utilities,50.00
+Streaming Service,Entertainment,14.99
+Coffee,Food,22.50
+Insurance,Health,180.25
+Books,Education,30.00
+Clothes,Personal,125.00
+Car Maintenance,Transportation,290.00
+Concert,Entertainment,55.00
+Water Bill,Utilities,35.00
+Medication,Health,25.00
+Movie Night,Entertainment,18.00
+Gift,Personal,40.00
+Software Subscription,Education,12.00
+Lunch,Food,15.00
+Haircut,Personal,25.00
+Garden Supplies,Home,40.00
+Laundry,Utilities,10.00
+Donation,Charity,20.00
+Pet Food,Personal,30.00
+Snacks,Food,10.50
+Uber Ride,Travel,25.00
+Parking,Transportation,5.00
+Yoga Class,Health,20.00
+Music Lessons,Education,50.00
+Cleaning Supplies,Home,15.00
+Taxi,Transportation,18.00
+Museum Tickets,Entertainment,12.00
+Groceries,Food,140.60
+Utilities,Housing,85.00
+Fitness Membership,Health,45.50
+Bus Pass,Travel,30.00
+Breakfast,Food,8.00
+Hair Products,Personal,15.00
+Laptop Accessory,Electronics,25.00
+Camping Gear,Entertainment,60.00
+Water Bill,Housing,40.50
+Personal Training,Health,55.00
+Taxi,Transportation,22.00
+Books,Education,15.00
+Streaming Service,Entertainment,13.99
+Gift for Friend,Personal,30.00
+Office Supplies,Work,10.00
+Lunch,Food,12.50
+Car Wash,Transportation,15.00
+Vet Visit,Health,65.00
+Photography Course,Education,75.00
+Concert Tickets,Entertainment,60.00
+Electric Bill,Utilities,115.00
+Therapy Session,Health,100.00
+Snacks,Food,5.00
+Holiday Travel,Travel,200.00
+Plant,Home,20.00
+Spa Treatment,Personal,80.00
+Pet Grooming,Health,50.00
+Public Transport,Travel,40.00
+Dinner Out,Food,35.00
+Wine,Food,20.00
+New Shoes,Personal,60.00
+Gaming Subscription,Entertainment,9.99
+Notebook,Education,5.00
+Cosmetics,Personal,45.00
+Light Bulbs,Home,10.00
+Taxi Fare,Transportation,15.00
+Bicycle Repair,Health,30.00
+Insurance Premium,Health,200.00
+Weekend Trip,Travel,120.00
+Gift for Family,Personal,50.00
+Magazine Subscription,Entertainment,7.00
+Printer Ink,Work,20.00
+Taxi Ride,Transportation,20.00
+Pastry,Food,3.50
+Workshop Fee,Education,100.00
+T-shirt,Personal,12.00
+Massage,Health,70.00
+Music Download,Entertainment,1.29
+Stationery,Work,8.00
+Flower Bouquet,Personal,15.00
+Fast Food,Food,9.99
+Running Shoes,Health,85.00
+Kitchen Utensils,Home,25.00
+Library Fines,Education,2.50
+Tool Rental,Home,30.00
+Streaming Service,Entertainment,12.99
+Fast Food,Food,11.50
+House Cleaning,Home,60.00
+Prescription,Health,45.00
+Lunch Out,Food,13.50
+Holiday Gifts,Personal,75.00
+Art Class,Education,50.00
+Movie Rental,Entertainment,3.99
+Train Ticket,Travel,40.00
+Board Games,Entertainment,20.00
+Garden Fertilizer,Home,15.00
+Battery Replacement,Electronics,10.00
+Laundry Service,Utilities,8.00
+Pest Control,Home,35.00
+Gym Shoes,Health,90.00
+Pet Supplies,Personal,40.00
+Therapy Session,Health,90.00
+Language Course,Education,120.00
+Gasoline,Transportation,50.00
+Home Repair,Home,100.00
